@@ -20,3 +20,15 @@ rackup
 ```text
 http://localhost:3000/books/{ISBN}
 ```
+
+## Local Console
+
+```bash
+./bin/console
+```
+
+## 运行测试
+
+```bash
+bundle exec rspec
+```
