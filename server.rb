@@ -5,7 +5,6 @@ require 'json'
 
 class Server
   def call(env)
-    handler = routes(env)
-    handler.call if handler
+    Routes.new(env).handler.call
   end
 end
