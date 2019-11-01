@@ -1,5 +1,6 @@
-require_relative '../server'
+# frozen_string_literal: true
 
+require_relative '../server'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -12,9 +13,7 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
   config.disable_monkey_patching!
   config.warnings = true
-  if config.files_to_run.one?
-    config.default_formatter = "doc"
-  end
+  config.default_formatter = 'doc' if config.files_to_run.one?
   config.profile_examples = 10
   config.order = :random
 end

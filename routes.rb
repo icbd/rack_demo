@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'controllers/books_controller'
 
 class Routes
@@ -8,11 +10,11 @@ class Routes
   end
 
   def handler
-    case env["REQUEST_PATH"]
-    when /\/books\/(\w+)/
-      params = { isbn: $1 }
+    case env['REQUEST_PATH']
+    when %r{\/books\/(\w+)}
+      params = { isbn: Regexp.last_match[1] }
       BooksController.new(params).method(:show)
-    when /\/books/
+    when %r{\/books}
       BooksController.new.method(:index)
     else
       BaseController.new.method(:routing_error)

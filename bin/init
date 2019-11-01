@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require_relative '../config/environment'
 require_relative '../models/book'
@@ -15,6 +16,6 @@ end
 books = [
   { isbn: '9787115249494', price: 49.00, name: '黑客与画家' },
   { isbn: '9787121106101', price: 49.99, name: '编码' },
-  { isbn: '9787111135104', price: 45.00, name: '计算机程序的构造和解释' },
+  { isbn: '9787111135104', price: 45.00, name: '计算机程序的构造和解释' }
 ]
 Book.create books

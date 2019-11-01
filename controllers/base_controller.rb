@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BaseController
   attr_reader :params
 
