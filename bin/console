@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require_relative '../config/environment'
+require_relative '../models/book'
+require 'irb'
+
+puts 'Hello: >'
+IRB.start
+puts 'BYE.'

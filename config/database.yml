@@ -1,0 +1,4 @@
+adapter: sqlite3
+database: database/books.sqlite3
+pool: 3
+timeout: 3000

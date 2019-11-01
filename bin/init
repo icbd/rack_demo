@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require_relative '../config/environment'
+require_relative '../models/book'
+
+ActiveRecord::Migration.drop_table(:books, if_exists: true)
+ActiveRecord::Schema.define do
+  create_table :books do |t|
+    t.string :isbn, index: true
+    t.string :name
+    t.decimal :price
+  end
+end
+
+books = [
+  { isbn: '9787115249494', price: 49.00, name: '黑客与画家' },
+  { isbn: '9787121106101', price: 49.99, name: '编码' },
+  { isbn: '9787111135104', price: 45.00, name: '计算机程序的构造和解释' },
+]
+Book.create books
