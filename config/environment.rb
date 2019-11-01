@@ -1,6 +1,7 @@
 require 'bundler/setup'
 require 'active_record'
 require 'sqlite3'
+require 'pry'
 
 require_relative '../config/environment'
 
