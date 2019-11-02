@@ -11,8 +11,12 @@ class RackLogger
   end
 
   def call(env)
-    logger.info "#{env['REQUEST_METHOD']}  #{env['REQUEST_URI']}"
+    logger.info "REQUEST: #{env['REQUEST_METHOD']}  #{env['REQUEST_URI']}"
 
-    server.call(env)
+    status, head, body = server.call(env)
+
+    logger.info "RESPONSE: #{status}  #{body}"
+
+    [status, head, body]
   end
 end
