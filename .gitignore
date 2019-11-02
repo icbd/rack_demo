@@ -1,1 +1,3 @@
 database/books.sqlite3
+!**/.keep
+log/
