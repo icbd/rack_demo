@@ -7,7 +7,8 @@ class RackLogger
 
   def initialize(server)
     @server = server
-    @logger = Logger.new(File.expand_path('../log/rack.log', __dir__), datetime_format: '%Y-%m-%d %H:%M:%S')
+    @logger = Logger.new(File.expand_path('../log/rack.log', __dir__),
+                         datetime_format: '%Y-%m-%d %H:%M:%S')
   end
 
   def call(env)

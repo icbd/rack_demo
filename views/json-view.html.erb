@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSONView</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-jsonview/1.2.3/jquery.jsonview.min.css"/>
+  <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.bootcss.com/jquery-jsonview/1.2.3/jquery.jsonview.min.js"></script>
+  <script type="text/javascript">
+      var json = JSON.parse(<%= json_data %>);
+      $(function () {
+          $("#json").JSONView(json);
+          $("#json-collapsed").JSONView(json, {collapsed: false, nl2br: true, recursive_collapser: true});
+      });
+  </script>
+</head>
+<body>
+<h2>Response:</h2>
+<div id="json-collapsed" style="background-color: #eeeeee"></div>
+</body>
+</html>
