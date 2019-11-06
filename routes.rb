@@ -10,7 +10,7 @@ class Routes
   end
 
   def handler
-    case env['REQUEST_PATH']
+    case env['PATH_INFO']
     when %r{\/books\/(\w+)}
       params = { isbn: Regexp.last_match[1] }
       BooksController.new(params).method(:show)

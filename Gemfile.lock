@@ -1,5 +1,5 @@
 GEM
-  remote: https://gems.ruby-china.com/
+  remote: https://rubygems.org/
   specs:
     activemodel (6.0.0)
       activesupport (= 6.0.0)
@@ -28,6 +28,8 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.10)
     rack (2.0.7)
+    rack-test (1.1.0)
+      rack (>= 1.0, < 3)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
@@ -55,6 +57,7 @@ DEPENDENCIES
   irb
   pry-byebug
   rack
+  rack-test
   rspec
   sqlite3
 

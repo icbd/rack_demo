@@ -3,31 +3,30 @@
 require_relative '../spec_helper'
 
 RSpec.describe 'Books', type: :request do
-  let(:server) { Server.new }
+  include Rack::Test::Methods
+
+  let(:app) { Server.new }
 
   it 'GET /books' do
-    env = { 'REQUEST_METHOD' => 'GET', 'REQUEST_PATH' => '/books' }
-    response = server.call(env)
+    get '/books'
 
-    expect(response[0]).to eq 200
-    expect(response[2][0]).to eq Book.all.order(:id).to_json
+    expect(last_response.status).to eq 200
+    expect(last_response.body).to eq Book.all.order(:id).to_json
   end
 
   it 'GET /books/{ISBN}' do
     book = Book.last
 
-    env = { 'REQUEST_METHOD' => 'GET', 'REQUEST_PATH' => "/books/#{book.isbn}" }
-    response = server.call(env)
+    get "/books/#{book.isbn}"
 
-    expect(response[0]).to eq 200
-    expect(response[2][0]).to eq book.to_json
+    expect(last_response.status).to eq 200
+    expect(last_response.body).to eq book.to_json
   end
 
   it 'GET /error_routes' do
-    env = { 'REQUEST_METHOD' => 'GET', 'REQUEST_PATH' => '/error_routes' }
-    response = server.call(env)
+    get 'error_routes'
 
-    expect(response[0]).to eq 404
-    expect(response[2][0]).to eq 'Routing Error'
+    expect(last_response.status).to eq 404
+    expect(last_response.body).to eq 'Routing Error'
   end
 end
