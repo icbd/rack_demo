@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'rack'
+require_relative '../config/environment'
+require_relative '../models/book'
+require_relative '../server'
+require_relative '../middlewares/rack_logger'
+require_relative '../middlewares/json_view'
+
+
+app = Rack::Builder.new do
+  use RackLogger
+  use JsonView
+
+  run Server.new
+end
+Rack::Server.start :app => app, Port: 3000
